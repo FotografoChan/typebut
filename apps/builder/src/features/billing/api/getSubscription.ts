@@ -84,7 +84,7 @@ export const getSubscription = authenticatedProcedure
             priceIds.PRO.chats.yearly === item.price.id
           )
         }),
-        currency: currentSubscription.currency as 'usd' | 'eur',
+        currency: currentSubscription.currency as 'brl' | 'eur',
         cancelDate: currentSubscription.cancel_at
           ? new Date(currentSubscription.cancel_at * 1000)
           : undefined,
