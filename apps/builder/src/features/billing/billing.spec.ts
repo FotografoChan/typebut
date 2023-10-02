@@ -75,7 +75,7 @@ test('should display valid usage', async ({ page }) => {
   await page.click('text="Free workspace"')
   await page.click('text=Settings & Members')
   await page.click('text=Billing & Usage')
-  await expect(page.locator('text="/ 200"')).toBeVisible()
+  await expect(page.locator('text="/ 400"')).toBeVisible()
   await page.getByText('Members', { exact: true }).click()
   await expect(
     page.getByRole('heading', { name: 'Members (1/1)' })
@@ -90,7 +90,7 @@ test('should display valid usage', async ({ page }) => {
   await page.click('text="Usage Workspace"')
   await page.click('text=Settings & Members')
   await page.click('text=Billing & Usage')
-  await expect(page.locator('text="/ 2,000"')).toBeVisible()
+  await expect(page.locator('text="/ 4,000"')).toBeVisible()
   await expect(page.locator('text="10" >> nth=0')).toBeVisible()
   await expect(page.locator('[role="progressbar"] >> nth=0')).toHaveAttribute(
     'aria-valuenow',
@@ -103,7 +103,7 @@ test('should display valid usage', async ({ page }) => {
   })
   await page.click('text="Settings"')
   await page.click('text="Billing & Usage"')
-  await expect(page.locator('text="/ 2,000"')).toBeVisible()
+  await expect(page.locator('text="/ 4,000"')).toBeVisible()
   await expect(page.locator('text="1,100"')).toBeVisible()
   await expect(page.locator('[aria-valuenow="55"]')).toBeVisible()
 })
@@ -127,9 +127,9 @@ test('plan changes should work', async ({ page }) => {
   await page.getByRole('button', { name: 'Go to checkout' }).click()
   await page.waitForNavigation()
   expect(page.url()).toContain('https://checkout.stripe.com')
-  await expect(page.locator('text=$73.00 >> nth=0')).toBeVisible()
-  await expect(page.locator('text=$30.00 >> nth=0')).toBeVisible()
-  await expect(page.locator('text=$4.00 >> nth=0')).toBeVisible()
+  await expect(page.locator('text=$93.00 >> nth=0')).toBeVisible()
+  await expect(page.locator('text=$80.00 >> nth=0')).toBeVisible()
+  await expect(page.locator('text=$7.00 >> nth=0')).toBeVisible()
   const stripeId = await addSubscriptionToWorkspace(
     planChangeWorkspaceId,
     [
@@ -145,10 +145,10 @@ test('plan changes should work', async ({ page }) => {
   await page.goto('/typebots')
   await page.click('text=Settings & Members')
   await page.click('text=Billing & Usage')
-  await expect(page.locator('text="/ 2,000"')).toBeVisible()
+  await expect(page.locator('text="/ 4,000"')).toBeVisible()
   await expect(page.getByText('/ 2,000')).toBeVisible()
-  await page.click('button >> text="2,000"')
-  await page.click('button >> text="3,500"')
+  await page.click('button >> text="4,000"')
+  await page.click('button >> text="5,500"')
   await page.click('button >> text="2"')
   await page.click('button >> text="4"')
   await expect(page.locator('text="$73"')).toBeVisible()
