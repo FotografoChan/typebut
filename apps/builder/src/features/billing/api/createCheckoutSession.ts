@@ -135,7 +135,7 @@ export const createCheckoutSession = authenticatedProcedure
 type Props = {
   customerId: string
   workspaceId: string
-  currency: 'usd' | 'eur'
+  currency: 'brl' | 'eur'
   plan: 'STARTER' | 'PRO'
   returnUrl: string
   additionalChats: number
