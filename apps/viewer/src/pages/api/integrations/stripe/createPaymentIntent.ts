@@ -35,7 +35,8 @@ const currencySymbols: { [key: string]: string } = {
   THB: '฿',
   UAH: '₴',
   VND: '₫',
-}
+  BRL: 'R$'  // Adicionando o símbolo para o Real Brasileiro
+};
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await cors(req, res)
