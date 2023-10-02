@@ -80,7 +80,7 @@ export const ChangePlanForm = ({ workspace, excludedPlans }: Props) => {
       additionalChats: selectedChatsLimitIndex,
       currency:
         data?.subscription?.currency ??
-        (guessIfUserIsEuropean() ? 'eur' : 'usd'),
+        (guessIfUserIsEuropean() ? 'eur' : 'brl'),
       isYearly,
     } as const
     if (workspace.stripeId) {
